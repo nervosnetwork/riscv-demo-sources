@@ -1,0 +1,4 @@
+riscv64-unknown-elf-objdump -d minimal | awk -v RS= '/^[[:xdigit:]].*<FUNCTION>/'
+riscv64-unknown-elf-objdump -S minimal | awk '/^[[:xdigit:]]+ <FUNCTION>:$/{flag=1;next}/^[[:xdigit:]]+ <.*>:$/{flag=0}flag'
+
+# From https://stackoverflow.com/a/31138400
