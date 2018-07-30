@@ -1694,11 +1694,14 @@ class Bitcoin::Script
   end
 end
 
+def hex_to_bin(s)
+ s.chars.each_slice(2).map(&:join).map { |x| x.hex.chr }.join
+end
+
 # 1 2 OP_ADD
-script = Bitcoin::Script.new("\x01\x01\x01\x02\x93")
+binary = hex_to_bin("0101010293")
+# binary = hex_to_bin("0103010487")
 
-# 03 04 OP_EQUAL
-# script = Bitcoin::Script.new("\x01\x03\x01\x04\x87")
-
+script = Bitcoin::Script.new(binary)
 puts script.run
 puts script.debug
