@@ -1,7 +1,7 @@
 # Dependencies
 
 ```
-$ brew tab riscv/riscv
+$ brew tap riscv/riscv
 $ brew install riscv-tools bison
 ```
 
